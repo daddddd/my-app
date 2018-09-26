@@ -39,18 +39,25 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>external.atlassian.jgitflow</groupId>
-				<artifactId>jgitflow-maven-plugin</artifactId>
-				<version>1.0-m5.1</version>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.10.0</version>
 				<configuration>
-					<!-- see goals wiki page for configuration options -->
+					<commitMessages>
+						<releaseStartMessage>Release ${releaseVersion}</releaseStartMessage> <!--Message written to the master branch commit / merge -->
+						<releaseFinishMessage>Snapshot version to ${developmentVersion}</releaseFinishMessage> <!-- Message written to the development branch commit / merge -->
+					</commitMessages>
+					<gitFlowConfig>
+						<productionBranch>master</productionBranch> <!-- Master branch -->
+						<developmentBranch>develop</developmentBranch> <!-- Develop / Snapshot branch -->
+						<versionTagPrefix>Release_</versionTagPrefix> <!-- Release_A.B.C tag -->
+					</gitFlowConfig>
 					<project>
 						<scm>
 							<connection>scm:git:https://github.com/daddddd/my-app.git</connection>
 							<developerConnection>scm:git:https://github.com/daddddd/my-app.git</developerConnection>
 						</scm>
 					</project>
-					<enableSshAgent>true</enableSshAgent>
 				</configuration>
 			</plugin>
 			<plugin>
