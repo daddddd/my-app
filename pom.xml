@@ -44,6 +44,13 @@
 				<version>1.0-m5.1</version>
 				<configuration>
 					<!-- see goals wiki page for configuration options -->
+					<project>
+						<scm>
+							<connection>scm:git:https://github.com/daddddd/my-app.git</connection>
+							<developerConnection>scm:git:https://github.com/daddddd/my-app.git</developerConnection>
+						</scm>
+					</project>
+					<enableSshAgent>true</enableSshAgent>
 				</configuration>
 			</plugin>
 			<plugin>
